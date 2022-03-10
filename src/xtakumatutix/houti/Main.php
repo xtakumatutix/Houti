@@ -6,12 +6,13 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
+use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\plugin\PluginBase;
 use pocketmine\Player;
 
 class Main extends PluginBase implements Listener
 {
-    public function onEnable()
+    public function onEnable() :void
     {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
@@ -36,7 +37,11 @@ class Main extends PluginBase implements Listener
 
     public function onjoin(PlayerJoinEvent $event)
     {
-        $event->getPlayer()->setImmobile(false);
         $this->houti[$event->getPlayer()->getName()] = false;
     }
+    
+    public function onQuit(PlayerQuitEvent $event) 
+    {
+		$event->getPlayer()->setImmobile(false);
+	}
 }
