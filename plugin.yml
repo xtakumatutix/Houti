@@ -2,7 +2,7 @@
 name: houti
 main: xtakumatutix\houti\Main
 version: 1.0.0
-api: 3.0.0
+api: 4.0.0
 commands:
   houti:
     description: 放置通知をします
